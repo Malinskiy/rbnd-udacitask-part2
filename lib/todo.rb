@@ -1,13 +1,15 @@
 require_relative 'base_item'
+require_relative 'dateable'
 
 class TodoItem < BaseItem
   include Listable
+  include Dateable
   attr_reader :due
 
   def initialize(description, options={})
     super description, options[:priority]
 
-    @due = options[:due] ? Date.parse(options[:due]) : options[:due]
+    @due = options[:due] ? date_parse(options[:due]) : options[:due]
   end
 
   def details

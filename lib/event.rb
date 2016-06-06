@@ -1,14 +1,16 @@
 require_relative 'base_item'
+require_relative 'dateable'
 
 class EventItem < BaseItem
   include Listable
+  include Dateable
   attr_reader :start_date, :end_date
 
   def initialize(description, options={})
     super description, options[:priority]
 
-    @start_date = Date.parse(options[:start_date]) if options[:start_date]
-    @end_date   = Date.parse(options[:end_date]) if options[:end_date]
+    @start_date = date_parse(options[:start_date]) if options[:start_date]
+    @end_date   = date_parse(options[:end_date]) if options[:end_date]
   end
 
   def details
