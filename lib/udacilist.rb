@@ -19,6 +19,8 @@ class UdaciList
         @items.push EventItem.new(title, options)
       when 'link'
         @items.push LinkItem.new(title, options)
+      when 'sleep'
+        @items.push SleepItem.new(title, options)
       else
         raise UdaciListErrors::InvalidItemType, "Type '#{type}' is unsupported"
     end

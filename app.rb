@@ -6,6 +6,7 @@ require_relative 'lib/udacilist'
 require_relative 'lib/todo'
 require_relative 'lib/event'
 require_relative 'lib/link'
+require_relative 'lib/sleep_item'
 
 # list = UdaciList.new(title: "Julia's Stuff")
 # list.add('todo', 'Buy more cat food', due: '2016-02-03', priority: 'low')
@@ -26,6 +27,7 @@ new_list.add('todo', 'Go dancing', due: 'in 2 hours')
 new_list.add('todo', 'Buy groceries', priority: 'high')
 new_list.add('event', 'Birthday Party', start_date: 'May 31')
 new_list.add('event', 'Vacation', start_date: 'Dec 20', end_date: 'Dec 30')
+new_list.add('sleep', 'Take a nap', start_date: 'in 3 hours', end_date: 'in 20 hours')
 new_list.add('event', 'Life happens')
 new_list.add('link', 'https://www.udacity.com/', site_name: 'Udacity Homepage')
 new_list.add('link', 'http://ruby-doc.org')
