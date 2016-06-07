@@ -1,14 +1,14 @@
 require_relative 'errors'
 
 class BaseItem
-  attr_reader :description, :priority
+  attr_reader :title, :description, :priority
 
-  def initialize(description, priority)
+  def initialize(title, priority)
     if ![nil, 'low', 'medium', 'high'].include? priority
       raise UdaciListErrors::InvalidPriorityValue, "Priority '#{priority}' is invalid"
     end
 
-    @description = description
-    @priority    = priority
+    @title    = title
+    @priority = priority
   end
 end

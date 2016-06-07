@@ -6,15 +6,13 @@ class TodoItem < BaseItem
   include Dateable
   attr_reader :due
 
-  def initialize(description, options={})
-    super description, options[:priority]
+  def initialize(title, options={})
+    super title, options[:priority]
 
     @due = options[:due] ? date_parse(options[:due]) : options[:due]
   end
 
   def details
-    format_description(@description) + 'due: ' +
-        format_date('No due date', @due) +
-        format_priority(@priority)
+    'due: ' + format_date('No due date', @due)
   end
 end

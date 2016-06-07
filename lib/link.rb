@@ -2,11 +2,12 @@ require_relative 'base_item'
 
 class LinkItem < BaseItem
   include Listable
-  attr_reader :site_name
+  attr_reader :site_name, :url
 
   def initialize(url, options={})
     super url, options[:priority]
 
+    @url       = url
     @site_name = options[:site_name]
   end
 
@@ -15,6 +16,6 @@ class LinkItem < BaseItem
   end
 
   def details
-    format_description(@description) + "site name: " + format_name
+    'site name: ' + format_name
   end
 end

@@ -1,4 +1,5 @@
 require_relative 'errors'
+require 'terminal-table'
 
 class UdaciList
   attr_reader :title, :items
@@ -8,16 +9,16 @@ class UdaciList
     @items = []
   end
 
-  def add(type, description, options={})
+  def add(type, title, options={})
     type = type.downcase
 
     case type
       when 'todo'
-        @items.push TodoItem.new(description, options)
+        @items.push TodoItem.new(title, options)
       when 'event'
-        @items.push EventItem.new(description, options)
+        @items.push EventItem.new(title, options)
       when 'link'
-        @items.push LinkItem.new(description, options)
+        @items.push LinkItem.new(title, options)
       else
         raise UdaciListErrors::InvalidItemType, "Type '#{type}' is unsupported"
     end
@@ -28,11 +29,12 @@ class UdaciList
   end
 
   def all
-    puts '-' * @title.length
-    puts @title
-    puts '-' * @title.length
+    rows = []
+
     @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      rows << ["#{position + 1}", "#{item.title}", "#{item.details}", "#{item.format_priority(item.priority)}"]
     end
+
+    puts Terminal::Table.new :title => @title, :headings => %w(# Title Description Priority), :rows => rows
   end
 end
