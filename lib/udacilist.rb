@@ -26,8 +26,10 @@ class UdaciList
     end
   end
 
-  def delete(index)
-    raise UdaciListErrors::IndexExceedsListSize, "Element at index #{index} doesn't exist" if @items.delete_at(index - 1).nil?
+  def delete(*index)
+    index.each { |idx|
+      raise UdaciListErrors::IndexExceedsListSize, "Element at index #{idx} doesn't exist" if @items.delete_at(idx - 1).nil?
+    }
   end
 
   def all
