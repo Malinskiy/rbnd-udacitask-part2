@@ -1,13 +1,21 @@
-# What you added to Udacitask 2.0
-# -------------------------------------------------------
-1. What is the gem of your choice and how did you use it?
-2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+Used terminal-table gem to make output a bit clearer and nicer
 
-# REFLECTIONS
-# -------------------------------------------------------
-1. How long did you spend working on this project?
-2. What was the most rewarding challenge you conquered?
-3. What two additional features did you build? Why?
-4. Where do you still have room to grow?
+Added 2 features:
+* sleep item (very important in life :) )
+* removal of multiple items
+
+
+Q: How long did you spend working on this project?
+A: 2 hrs
+
+Q: What was the most rewarding challenge you conquered?
+A: Thinking how to implement the similar behavior in multiple classes
+
+Q: What two additional features did you build? Why?
+A: new item type and removal of multiple tasks.
+    because sleep is very important in life and sometimes you forget to remove a task from todo and you need to
+    remove several of them in one call
+
+Q: Where do you still have room to grow?
+A: All types are currently hardcoded in classes and also in udacilist. Probably need some kind of RTTI to check all
+    child classes of BaseItem
