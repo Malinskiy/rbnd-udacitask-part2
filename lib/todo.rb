@@ -15,4 +15,8 @@ class TodoItem < BaseItem
   def details
     'due: ' + format_date('No due date', @due)
   end
+
+  def type
+    'todo'
+  end
 end

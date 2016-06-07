@@ -29,12 +29,26 @@ class UdaciList
   end
 
   def all
+    print(@items)
+  end
+
+  def print(items)
     rows = []
 
-    @items.each_with_index do |item, position|
-      rows << ["#{position + 1}", "#{item.title}", "#{item.details}", "#{item.format_priority(item.priority)}"]
+    items.each_with_index do |item, position|
+      rows << ["#{position + 1}", "#{item.title}", "#{item.type}", "#{item.details}", "#{item.format_priority(item.priority)}"]
     end
 
-    puts Terminal::Table.new :title => @title, :headings => %w(# Title Description Priority), :rows => rows
+    puts Terminal::Table.new :title => @title, :headings => %w(# Title Type Description Priority), :rows => rows
+  end
+
+  def filter(type)
+    result = @items.select { |item| item.type == type }
+
+    if result.empty?
+      puts "No items of type '#{type}' in list"
+    else
+      print result
+    end
   end
 end

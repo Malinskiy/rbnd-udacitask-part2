@@ -16,4 +16,8 @@ class EventItem < BaseItem
   def details
     'event dates: ' + format_date('N/A', @start_date, @end_date)
   end
+
+  def type
+    'event'
+  end
 end

@@ -15,6 +15,10 @@ class LinkItem < BaseItem
     @site_name ? @site_name : ""
   end
 
+  def type
+    'link'
+  end
+
   def details
     'site name: ' + format_name
   end
